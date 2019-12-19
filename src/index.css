@@ -19,3 +19,15 @@ code {
 input{
   border-bottom:1px solid #000 !important;
 }
+
+.my-padding{
+  padding-right: 80px;
+}
+
+.pt1{
+  padding-top: 50px;
+}
+
+.carousel .carousel-item>img{
+  width:150% !important;
+}
