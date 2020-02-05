@@ -17,7 +17,7 @@ const SignIn = (props) => {
         <form className="col s12" onSubmit={(e) => actions.submitRegistration(e)}>
           <div className="row">
             <div className="input-field col s6">
-              <input id="firstname" type="text" className="validate" onChange={e => actions.handleChangeRegistration(e)}/>
+              <input id="firstname" type="text" className="validate" onChange={evento => actions.handleChangeRegistration(evento)} />
               <label htmlFor="firstname">First Name</label>
             </div>
             <div className="input-field col s6">

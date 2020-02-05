@@ -1,8 +1,8 @@
 import React from "react";
 import M from "materialize-css";
-import { Link } from "react-router-dom";
 import { Fragment } from "react";
-
+import {Navbar} from "../components/Navbar";
+import { Link } from "react-router-dom";
 
 export default class HomeScreen extends React.Component {
     constructor(props) {
@@ -22,61 +22,48 @@ export default class HomeScreen extends React.Component {
         M.Parallax.init(elemss);
 
         let elemsss = document.querySelectorAll('.sidenav');
-        M.Sidenav.init(elemsss);
-
-        var elemssss = document.querySelectorAll('.fixed-action-btn');
-        M.FloatingActionButton.init(elemssss, {
-            direction: 'left',
-            hoverEnabled: false
-        });
+        M.Sidenav.init(elemsss, { edge: "left" });
     }
+
+    onClick(e) {
+        console.log(e.target);
+    }
+
     render() {
         return (
             <Fragment>
-                <nav>
-                    <div className="nav-wrapper teal lighten-1">
-                        <a href="#" className="brand-logo"><img src="/foxlogo.png" widdth="64px" height="64px" /></a>
-                        <ul id="nav-mobile" className="right hide-on-med-and-down my-padding">
-                            <li><Link href="sass.html">Races</Link></li>
-                            <li><Link href="badges.html">Enviroment</Link></li>
-                            <li><Link href="collapsible.html">History</Link></li>
-                        </ul>
-                    </div>
-                </nav>
-
-               <div className="fixed-action-btn">
+             <Navbar />
                 <ul id="slide-out" className="sidenav">
                     <li><div className="user-view">
                         <div className="background">
-                            <img src="images/office.jpg" />
+                            <img src="https://cdn-media-1.freecodecamp.org/images/0*ngXgBNNdx6iiWP8q.png" alt="background" />
                         </div>
-                        <a href="#user"><img className="circle" src="images/yuna.jpg" /></a>
+                        <a href="#user"><img className="circle" src="https://www.goodcore.co.uk/blog/wp-content/uploads/2019/08/coding-vs-programming-2.jpg" alt="user icon" /></a>
                         <a href="#name"><span className="white-text name">John Doe</span></a>
                         <a href="#email"><span className="white-text email">jdandturk@gmail.com</span></a>
                     </div></li>
-                    <li><a href="#!"><i className="material-icons">cloud</i>First Link With Icon</a></li>
-                    <li><a href="#!">Second Link</a></li>
+                    <li><a href="#!"><i className="material-icons">cloud</i>My Cloud</a></li>
+                    <li><Link to="/profile">Profile</Link></li>
                     <li><div className="divider"></div></li>
-                    <li><a className="subheader">Subheader</a></li>
-                    <li><a className="waves-effect" href="#!">Third Link With Waves</a></li>
+                    <li><a className="subheader" href="/#">Settings</a></li>
+                    <li><a className="waves-effect" href="#!">Logout</a></li>
                 </ul>
-                <a href="#" data-target="slide-out" className="sidenav-trigger btn-floating btn-large red"><i className="material-icons">menu</i></a>
-               </div>
+                <a href="/#" data-target="slide-out" className="sidenav-trigger btn waves-light red" ><i className="material-icons">menu</i></a>
 
                 <div className="container">
                     <div className="row">
                         <div className="col l6">
-                            <div className="carousel">
-                                <a className="carousel-item" href="#one!"><img src="https://www.liveanimalslist.com/mammals/images/swift-fox-picture.jpg" /></a>
-                                <a className="carousel-item" href="#two!"><img src="https://i.pinimg.com/originals/61/6c/d2/616cd22156e1062241e9744c75a2303c.jpg" /></a>
-                                <a className="carousel-item" href="#three!"><img src="https://images.unsplash.com/photo-1485094142704-b05d3759b589?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" /></a>
-                                <a className="carousel-item" href="#four!"><img src="https://www.state.nj.us/dep/fgw/images/wildlife/fox_gl.jpg" /></a>
+                            <div className="carousel" onClick={(e) => this.onClick(e)}>
+                                <a className="carousel-item" href="#one!" id="slideOne" onClick={(e) => this.onClick(e)}><img src="https://www.liveanimalslist.com/mammals/images/swift-fox-picture.jpg" alt="slide" /></a>
+                                <a className="carousel-item" href="#two!" id="slideTwo"><img src="https://i.pinimg.com/originals/61/6c/d2/616cd22156e1062241e9744c75a2303c.jpg" alt="slide" /></a>
+                                <a className="carousel-item" href="#three!" id="slideThree"><img src="https://images.unsplash.com/photo-1485094142704-b05d3759b589?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="slide" /></a>
+                                <a className="carousel-item" href="#four!" id="slideFour"><img src="https://www.state.nj.us/dep/fgw/images/wildlife/fox_gl.jpg" alt="slide" /></a>
                             </div>
                         </div>
                         <div className="col l6">
                             <ul className="collapsible popout pt1">
                                 <li>
-                                    <div className="collapsible-header"><i className="material-icons">filter_drama</i>First</div>
+                                    <div className="collapsible-header" ><i className="material-icons">filter_drama</i>First</div>
                                     <div className="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
                                 </li>
                                 <li>
@@ -96,8 +83,10 @@ export default class HomeScreen extends React.Component {
                     </div>
                     <div className="row">
                         <div className="col l12">
-                            <div className="parallax-container">
-                                <div className="parallax"><img src="/fox_parallax.jpg" /></div>
+                            <div className="parallax-container center-align">
+                                <p className="parallax-heading">The Desert fox</p>
+                                <p className="parallax-subheading">They rock</p>
+                                <div className="parallax"><img src="https://wallup.net/wp-content/uploads/2016/01/1207-sand-animals-desert-fennec-fox.jpg" alt="fox parallax" /></div>
                             </div>
                         </div>
                     </div>
@@ -141,9 +130,9 @@ export default class HomeScreen extends React.Component {
                         <div className="col s12 m6">
                             <div className="card">
                                 <div className="card-image">
-                                    <img src="https://www.pulpandpapercanada.com/wp-content/uploads/2019/09/fall2018-forests.jpg" />
+                                    <img src="https://www.pulpandpapercanada.com/wp-content/uploads/2019/09/fall2018-forests.jpg" alt="card" />
                                     <span className="card-title">Card Title</span>
-                                    <a className="btn-floating halfway-fab waves-effect waves-light red"><i className="material-icons">add</i></a>
+                                    <a className="btn-floating halfway-fab waves-effect waves-light red" href="/#"><i className="material-icons">add</i></a>
                                 </div>
                                 <div className="card-content">
                                     <p>I am a very simple card. I am good at containing small bits of information.
@@ -154,9 +143,9 @@ export default class HomeScreen extends React.Component {
                         <div className="col s12 m6">
                             <div className="card">
                                 <div className="card-image">
-                                    <img src="https://www.pulpandpapercanada.com/wp-content/uploads/2019/09/fall2018-forests.jpg" />
+                                    <img src="https://www.pulpandpapercanada.com/wp-content/uploads/2019/09/fall2018-forests.jpg" alt="card" />
                                     <span className="card-title">Card Title</span>
-                                    <a className="btn-floating halfway-fab waves-effect waves-light red"><i className="material-icons">add</i></a>
+                                    <a className="btn-floating halfway-fab waves-effect waves-light red" href="/#"><i className="material-icons">add</i></a>
                                 </div>
                                 <div className="card-content">
                                     <p>I am a very simple card. I am good at containing small bits of information.

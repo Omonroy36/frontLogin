@@ -7,7 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
+code{
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
@@ -30,4 +30,23 @@ input{
 
 .carousel .carousel-item>img{
   width:150% !important;
+}
+
+.sidenav-trigger {
+  position: fixed;
+  bottom: 10vh;
+  right: 10vh;
+  border-radius: 30%;
+}
+
+.parallax-heading{
+  font-weight: bold;
+  font-size: 60px;
+  color: white;
+}
+
+.parallax-subheading{
+  font-family: 'Kulim Park', sans-serif;
+  color: white;
+  font-weight: 20px;
 }

@@ -7,7 +7,6 @@ const injectContext = PassedComponent => {
     class StoreWrapper extends React.Component {
         constructor(props) {
             super(props);
-
             this.state = getState({
                 getStore: () => this.state.store,
                 getActions: () => this.state.actions,

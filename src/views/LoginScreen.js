@@ -7,8 +7,6 @@ export default class LoginScreen extends React.Component {
     constructor() {
         super();
         this.state = {
-            latitud: 12343242,
-            longitud:250242342
         }
     }
 
@@ -29,12 +27,12 @@ export default class LoginScreen extends React.Component {
                                         <div className="row">
                                             <div className="input-field col s6">
                                                 <i className="material-icons prefix">account_circle</i>
-                                                <input id="icon_prefix" type="text" className="validate" />
-                                                <label htmlFor="icon_prefix">First Name</label>
+                                                <input id="email" type="text" className="validate" onChange={e => actions.handleChangeRegistration(e)}/>
+                                                <label htmlFor="icon_prefix">Email</label>
                                             </div>
                                             <div className="input-field col s6">
                                                 <i className="material-icons prefix">vpn_key</i>
-                                                <input id="icon_telephone" type="password" className="validate" />
+                                                <input id="password" type="password" className="validate" onChange={e => actions.handleChangeRegistration(e)}/>
                                                 <label htmlFor="icon_telephone">Password</label>
                                             </div>
                                         </div>
